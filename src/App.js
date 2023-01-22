@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer, useEffect } from "react"
+import Header from "./components/header/Header"
+import TodoForm from "./components/todo-form/TodoForm"
+import TodoList from "./components/todo-list/TodoList"
+import { reducer } from "./components/reducer"
+import "./App.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const initialState = {
+  todos: JSON.parse(localStorage.getItem("todos") || "[]"),
+  inputValue: "",
+  editInputValue: "",
 }
 
-export default App;
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(state.todos))
+  }, [state.todos])
+  return (
+    <div className="App">
+      <Header />
+      <TodoForm state={state} dispatch={dispatch} />
+      <TodoList state={state} dispatch={dispatch} />
+    </div>
+  )
+}
+
+export default App
