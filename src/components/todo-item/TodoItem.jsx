@@ -49,17 +49,24 @@ const TodoItem = ({ state, dispatch, todo }) => {
 export default TodoItem
 
 const Ul = styled.ul`
+  width: 850px;
+  margin: 0 auto;
   background: #3399ff;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  border-radius: 5px;
 `
 
 const Li = styled.li`
   background: #cce5ff;
   color: darkblue;
   margin: 5px;
+  list-style: none;
+  display: grid;
+  justify-content: center;
+  gap: 17px;
+  grid-template-columns: 1fr 100px 100px 100px;
 `
 
 const Button = styled.button`

@@ -25,7 +25,7 @@ export default EditForm
 
 const Input = styled.input`
   width: 50%;
-  padding: 12px 15px;
+  padding: 8px 10px;
   margin: 8px 0;
   box-sizing: border-box;
   background-color: #3cbc8d;
@@ -37,11 +37,11 @@ const Button = styled.button`
   background-color: #68a0d9;
   border: none;
   color: black;
-  padding: 15px 32px;
+  padding: 14px 20px;
+  margin-left: 7px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   border-radius: 5px;
   box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
   cursor: pointer;
